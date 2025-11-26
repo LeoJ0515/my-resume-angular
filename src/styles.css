@@ -1,1 +1,329 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  --bg: #f6f1e9;
+  --primary: #ff9a00;
+  --secondary: #ffd93d;
+  --dark: #4f200d;
+  --shadow: rgba(0, 0, 0, 0.15);
+  --radius: 18px;
+  --transition: 0.35s ease;
+}
+
+body {
+  font-family: 'Roboto', 'Poppins', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--dark);
+  transition: var(--transition);
+  line-height: 1.6;
+}
+
+.fade {
+  animation: fadeIn 0.6s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+header {
+  text-align: center;
+  padding: 3rem 1rem;
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  color: var(--dark);
+  box-shadow: 0 4px 12px var(--shadow);
+  border-bottom-left-radius: 22px;
+  border-bottom-right-radius: 22px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  backdrop-filter: blur(10px);
+}
+
+header h1 {
+  margin: 0;
+  font-size: 3rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  font-family: 'Poppins', sans-serif;
+}
+
+header p {
+  margin: 0.3rem 0 1rem;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+nav button {
+  background: var(--dark);
+  color: #fff;
+  border: none;
+  padding: 0.85rem 1.9rem;
+  margin: 0 0.5rem;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: var(--transition);
+  font-weight: 500;
+}
+
+nav button:hover {
+  transform: translateY(-4px);
+  background: #331508;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+}
+
+nav button.active {
+  background: var(--secondary);
+  color: var(--dark);
+  font-weight: 700;
+  transform: translateY(-4px) scale(1.07);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+.container {
+  display: flex;
+  gap: 2rem;
+  padding: 3rem;
+  max-width: 1300px;
+  margin: auto;
+}
+
+.profile-card {
+  flex: 1;
+  background: #ffffff;
+  padding: 2.3rem 1.7rem;
+  border-radius: var(--radius);
+  box-shadow: 0px 4px 14px var(--shadow);
+  text-align: center;
+  transition: var(--transition);
+  position: sticky;
+  top: 120px;
+  height: fit-content;
+}
+
+.profile-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0px 8px 22px var(--shadow);
+}
+
+.profile-card img {
+  width: 100%;
+  max-width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 7px solid var(--secondary);
+  margin-bottom: 1rem;
+  transition: var(--transition);
+}
+
+.profile-card img:hover {
+  transform: scale(1.08) rotate(1deg);
+}
+
+.content-area {
+  flex: 2;
+  background: #ffffff;
+  padding: 2.3rem;
+  border-radius: var(--radius);
+  box-shadow: 0px 4px 14px var(--shadow);
+  transition: var(--transition);
+  min-height: 400px;
+  font-family: 'Roboto', sans-serif;
+}
+
+.content-area:hover {
+  transform: translateY(-6px);
+  box-shadow: 0px 8px 22px var(--shadow);
+}
+
+h2 {
+  margin-top: 0;
+  font-size: 2rem;
+  border-left: 6px solid var(--primary);
+  padding-left: 12px;
+  font-family: 'Poppins', sans-serif;
+}
+
+footer {
+  text-align: center;
+  padding: 2rem;
+  background: var(--primary);
+  margin-top: 3rem;
+  color: var(--dark);
+  font-weight: 700;
+  border-top-left-radius: 22px;
+  border-top-right-radius: 22px;
+  box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.1);
+  letter-spacing: 1px;
+}
+
+@media (max-width: 900px) {
+  .container { flex-direction: column; }
+  header h1 { font-size: 2.3rem; }
+  .profile-card { position: relative; top: 0; }
+}
+
+/* Card styles */
+.card-item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 1rem;
+  border-radius: 12px;
+  font-weight: 500;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  margin-bottom: 1rem;
+  transition: 0.3s ease;
+  background: var(--secondary);
+}
+
+.card-item:hover {
+  transform: translateX(6px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+}
+
+.card-item span.icon {
+  font-size: 1.4rem;
+  width: 28px;
+  display: flex;
+  justify-content: center;
+}
+
+.card-item.email { background: #ea4335; }
+.card-item.linkedin { background: #0a66c2; }
+.card-item.github { background: #24292e; }
+.card-item.hobby {
+  background: var(--dark);
+  color: #fff;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 1rem;
+}
+
+.card-item a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.card-item a:hover { text-decoration: underline; }
+
+.card-item.skill {
+  flex-direction: column;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  width: 100%;
+  background: var(--primary);
+  color: #fff;
+  border-radius: 12px;
+}
+
+.skill-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+
+.skill-header .icon {
+  font-size: 1.4rem;
+  min-width: 28px;
+  text-align: center;
+}
+
+.skill-name { font-size: 1rem; white-space: nowrap; }
+
+.progress-container {
+  width: 100%;
+  background: #eee;
+  border-radius: 12px;
+  height: 24px;
+  overflow: hidden;
+  position: relative;
+}
+
+.progress-bar {
+  height: 100%;
+  width: 0;
+  border-radius: 12px;
+  transition: width 1s ease;
+  position: relative;
+}
+
+.progress-bar::after {
+  content: attr(data-width);
+  position: absolute;
+  right: 8px;
+  top: 0;
+  height: 100%;
+  line-height: 24px;
+  color: #fff;
+  font-weight: 600;
+}
+
+.java { background: #f4b400; }
+.angular { background: #dd0031; }
+.sql { background: #0f9d58; }
+.web { background: #4285f4; }
+
+.hobby-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.hobby-img {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 8px;
+}
+
+.wave {
+  display: inline-block;
+  animation: wave 1.5s infinite;
+  transform-origin: 70% 70%;
+}
+
+@keyframes wave {
+  0%, 60%, 100% { transform: rotate(0deg); }
+  30% { transform: rotate(15deg); }
+}
+
+.gallery-full {
+  grid-column: 1 / -1;
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.gallery-label {
+  font-weight: 700;
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 10px;
+  width: 100%;
+}
+
+.gallery-grid img {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 12px;
+  transition: transform 0.3s ease;
+}
+
+.gallery-grid img:hover { transform: scale(1.05); }

@@ -2,6 +2,9 @@
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.0.0.
 
+## Link Resume
+https://leoj0515.github.io/my-resume-angular/
+
 ## Development server
 
 To start a local development server, run:

@@ -3,7 +3,7 @@
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.0.0.
 
 ## Link Resume
-https://leoj0515.github.io/my-resume-angular/
+https://leoj0515.github.io/my-resume-angular/?v=final
 
 ## Development server
 

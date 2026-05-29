@@ -1,12 +1,10 @@
 <header>
   <h1>LEONG JING YUN</h1>
-  <p>Matric No: 298804 • UUM IT Student</p>
+  <p>jyunleong030515@gmail.com • IT Student</p>
   <nav>
-    <button 
-      *ngFor="let page of ['home', 'hobbies', 'contact', 'skills', 'about']"
-      (click)="setPage(page)" 
+    <button *ngFor="let page of ['home', 'hobbies', 'contact', 'skills', 'experience']" (click)="setPage(page)"
       [class.active]="currentPage === page">
-      {{ page | titlecase }}
+      {{ page === 'experience' ? 'Experience & Projects' : (page | titlecase) }}
     </button>
   </nav>
   <hr style="margin-top:1.5rem; border: none; border-bottom: 2px solid rgba(0,0,0,0.2); width: 90%;" />
@@ -14,7 +12,7 @@
 
 <div class="container">
   <div class="profile-card">
-    <img src="assets/images/WhatsApp-Image-2025-06-21-at-12.06.03_c31a8e31.jpg" alt="Your Photo" />
+    <img src="assets/Leo.jpg" alt="Your Photo" />
     <h3>Leong Jing Yun</h3>
     <p>IT student at Universiti Utara Malaysia. Passionate about coding, web development, and technology innovation.</p>
   </div>
@@ -23,22 +21,70 @@
     <!-- Home Page -->
     <div *ngIf="currentPage === 'home'">
       <h2>Welcome <span class="wave">👋</span></h2>
+
+      <div class="card-item highlight-card">
+        <span class="icon">🚀</span>
+        <div class="intro-text">
+          <p class="intro-title">UUM IT Student | AI-Augmented Developer & Problem-Solver</p>
+          <p class="intro-description">I leverage AI to code faster, debug smarter, and automate repetitive tasks —
+            without losing the logic or clean code principles.</p>
+        </div>
+      </div>
+
       <div class="card-item">
-        <span class="icon">🏠</span>
-        Hello! I’m Leong Jing Yun, IT student at Universiti Utara Malaysia. Passionate about coding, web development, and tech innovation.
+        <span class="icon">⚡</span>
+        <div>
+          <strong>What I Bring:</strong><br>
+          • 50% faster development through AI-assisted coding<br>
+          • Smart debugging with AI pattern recognition<br>
+          • Automated testing and documentation generation<br>
+          • Clean, logical code with AI as an accelerator
+        </div>
+      </div>
+
+      <div class="card-item">
+        <span class="icon">💼</span>
+        <div>
+          <strong>Looking for:</strong> An IT role where working smart is seen as an asset, not a shortcut. I believe in
+          amplifying human creativity with AI, not replacing critical thinking.
+        </div>
+      </div>
+
+      <div class="card-item">
+        <span class="icon">💡</span>
+        <div>
+          <strong>My Philosophy:</strong> Technology should serve people, and AI should serve developers. I'm seeking a
+          team that values efficiency, innovation, and continuous learning.
+        </div>
+      </div>
+
+      <!-- 统计卡片 -->
+      <div class="stats-grid">
+        <div class="stat-card">
+          <span class="stat-number">50%+</span>
+          <span class="stat-label">Faster Coding</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-number">AI-Powered</span>
+          <span class="stat-label">Debugging</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-number">Smart</span>
+          <span class="stat-label">Automation</span>
+        </div>
       </div>
     </div>
 
     <!-- Hobbies Page -->
     <div *ngIf="currentPage === 'hobbies'">
-      <h2>Hobbies</h2>
+      <h2>Hobbies & Interests</h2>
       <div class="hobby-grid">
         <div class="card-item hobby"><span class="icon">💻</span><span>Coding</span></div>
         <div class="card-item hobby"><span class="icon">🎮</span><span>Gaming</span></div>
-        <div class="card-item hobby"><span class="icon">📷</span><span>Photography</span></div>
-        <div class="card-item hobby"><span class="icon">💡</span><span>Tech Exploration</span></div>
+        <div class="card-item hobby"><span class="icon">📷</span><span>Art Collector</span></div>
+        <div class="card-item hobby"><span class="icon">📚</span><span>Reading</span></div>
         <div class="gallery-full">
-          <span class="gallery-label">Gallery</span>
+          <span class="gallery-label">📸 Gallery</span>
           <div class="gallery-grid">
             <img *ngFor="let img of galleryImages" [src]="img" alt="Gallery" class="gallery-img" />
           </div>
@@ -48,7 +94,7 @@
 
     <!-- Skills Page -->
     <div *ngIf="currentPage === 'skills'">
-      <h2>Skills</h2>
+      <h2>Technical Skills</h2>
       <div *ngFor="let skill of skills" class="card-item skill">
         <div class="skill-header">
           <span class="icon">{{ skill.icon }}</span>
@@ -62,20 +108,139 @@
 
     <!-- Contact Page -->
     <div *ngIf="currentPage === 'contact'">
-      <h2>Contact</h2>
-      <div *ngFor="let item of contact" class="card-item" [ngClass]="{'email': item.icon === '📧', 'linkedin': item.icon === 'in', 'github': item.icon === '🐙'}">
+      <h2>Contact Me</h2>
+      <div *ngFor="let item of contact" class="card-item"
+        [ngClass]="{'email': item.icon === '📧', 'linkedin': item.icon === 'in', 'github': item.icon === '🐙'}">
         <span class="icon">{{ item.icon }}</span>
         <a *ngIf="item.link" [href]="item.link" target="_blank">{{ item.label }}</a>
         <span *ngIf="!item.link">{{ item.label }}</span>
       </div>
     </div>
 
-    <!-- About Page -->
-    <div *ngIf="currentPage === 'about'">
-      <h2>About Me</h2>
-      <div class="card-item">
-        <span class="icon">👤</span>
-        I am a UUM IT student passionate about software development, coding, web design, and exploring new technologies. My goal is to create modern, functional applications that solve real-world problems.
+    <!-- Experience & Projects Page (替换原来的 About) -->
+    <div *ngIf="currentPage === 'experience'">
+      <h2>💼 Experience & Projects</h2>
+
+      <!-- Experience Section -->
+      <div class="section-subtitle">🎓 Education & Experience</div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-icon">🎓</div>
+          <div class="timeline-content">
+            <h3>Universiti Utara Malaysia (UUM)</h3>
+            <span class="timeline-date">2023 - Present</span>
+            <p>Bachelor of Information Technology (Honours)</p>
+            <p>📚 <strong>Current CGPA: 3.82</strong> | Dean's List Award</p>
+            <p>📖 Relevant Courses: Data Structures/ Web Development/ Database Management/ Object-Oriented Programming/
+              Web Enginneering/ Mobile Programming
+            </p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-icon">📖</div>
+          <div class="timeline-content">
+            <h3>Sekolah Menengah Kebangsaan Perlis - Form 6 (STPM)</h3>
+            <span class="timeline-date">2021 - 2023</span>
+            <p>STPM Qualification (Arts Stream)</p>
+            <p>📚 <strong>CGPA: 3.58</strong></p>
+            <p>📖 Subjects: Pengajian Am/ Economics/ Bahasa Malay/ Geography</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Projects Section -->
+      <div class="section-subtitle">🚀 Featured Projects</div>
+      <div class="projects-grid">
+        <div class="project-card">
+          <div class="project-icon">📅</div>
+          <h3>Conference Management System</h3>
+          <p class="project-description">
+            A comprehensive full-stack web application for managing academic conferences.
+            Features include paper submission, peer-review workflow, reviewer assignment,
+            session scheduling, and notification system.
+          </p>
+          <div class="project-features">
+            <span>✅ Paper Submission</span>
+            <span>✅ Review System</span>
+            <span>✅ Schedule Manager</span>
+          </div>
+          <div class="project-tech">
+            <span>Angular</span>
+            <span>Spring Boot</span>
+            <span>TypeScript</span>
+            <span>Java</span>
+            <span>REST API</span>
+          </div>
+        </div>
+
+        <!-- Project 2: GeoSnapper Mobile App -->
+        <div class="project-card">
+          <div class="project-icon">📍</div>
+          <h3>GeoSnapper Mobile App</h3>
+          <p class="project-description">
+            A location-based mobile web application that enables users to capture photos
+            with geotags, view them on an interactive map, and share their favorite spots.
+            Built with responsive design for optimal mobile experience.
+          </p>
+          <div class="project-features">
+            <span>📍 GPS Location</span>
+            <span>📸 Photo Capture</span>
+            <span>🗺️ Interactive Map</span>
+          </div>
+          <div class="project-tech">
+            <span>HTML5</span>
+            <span>CSS3</span>
+            <span>JavaScript</span>
+            <span>Leaflet.js</span>
+            <span>Geolocation API</span>
+          </div>
+        </div>
+
+        <!-- Project 3: Dynamic Lecturer Content Management System -->
+        <div class="project-card">
+          <div class="project-icon">📚</div>
+          <h3>Dynamic Lecturer CMS</h3>
+          <p class="project-description">
+            A responsive content management system designed for lecturers to efficiently
+            manage course materials, announcements, assignments, and student resources.
+            Fully optimized for both PC and mobile devices with role-based access control.
+          </p>
+          <div class="project-features">
+            <span>📄 Course Management</span>
+            <span>📢 Announcements</span>
+            <span>📱 Mobile Responsive</span>
+          </div>
+          <div class="project-tech">
+            <span>PHP</span>
+            <span>JavaScript</span>
+            <span>CSS3</span>
+            <span>HTML5</span>
+            <span>MySQL</span>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-icon">🌐</div>
+          <h3>Personal Portfolio Website</h3>
+          <p>Angular-based responsive portfolio showcasing skills and projects. Features dynamic content and modern UI.
+          </p>
+          <div class="project-tech">
+            <span>Angular</span>
+            <span>TypeScript</span>
+            <span>CSS</span>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-icon">📱</div>
+          <h3>Mobile App Development</h3>
+          <p>Cross-platform mobile application for task management using Flutter and Firebase.</p>
+          <div class="project-tech">
+            <span>Flutter</span>
+            <span>Firebase</span>
+            <span>Dart</span>
+          </div>
+        </div>
+
       </div>
     </div>
 
